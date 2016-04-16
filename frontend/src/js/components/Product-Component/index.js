@@ -1,16 +1,37 @@
 import React from 'react'
 import { Thumbnail, Image } from 'react-bootstrap' //eslint-disable-line
+import axios from 'axios'
 
 export default class ProductComponent extends React.Component {
+
+  constructor () {
+    super()
+    this.state = {
+      items: []
+    }
+  }
+
+  componentWillMount () {
+    axios.get('/items').then(data => {
+      this.setState({ items: data.data })
+    })
+  }
+
   render () {
     return (
-      <Thumbnail src={this.props.imageURL}>
-        <Image src='https://avatars0.githubusercontent.com/u/12462448?v=3&s=460'
-          circle
-          responsive
-        />
-      {this.props.hashtags.map(hashtag => <h5>{'#' + hashtag}</h5>)}
-      </Thumbnail>
+      <div>
+        {this.state.items.map(item => {
+          return (
+            <Thumbnail src={item.imgURLs[0]}>
+              <Image src={item.provider.profileImage}
+                circle
+                responsive
+              />
+              {item.hashtags.map(hashtag => <h5>{'#' + hashtag}</h5>)}
+            </Thumbnail>
+          )
+        })}
+      </div>
     )
   }
 }
