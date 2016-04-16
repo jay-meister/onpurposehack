@@ -36,5 +36,3 @@ backend/dist
 public/app.js
 dump.rdb
 config.env
-.eslintrc.json
-.eslintegnore
