@@ -11,14 +11,15 @@ import { handlePlugins, handleStart } from './helpers/server-helpers.js'
 import Inert from 'inert'
 
 // server routes
-import Hello from './routes/Hello.js'
 import Images from './routes/Images.js'
 import ReactUrls from './routes/ReactUrls.js'
 import Scripts from './routes/Scripts.js'
+import Items from './routes/items.js'
+import TwiterAuth from './routes/twitterauth.js'
 
 const ConnectionSettings = { port, routes: { cors: true } }
 const Plugins = [ Inert ]
-const Routes = [ Hello, Images, ReactUrls, Scripts ]
+const Routes = [ Images, ReactUrls, Scripts, Items, TwiterAuth ]
 
 server.connection(ConnectionSettings)
 server.register(Plugins, handlePlugins)
