@@ -7,9 +7,7 @@ export default class ProductPage extends React.Component {
     return (
       <Grid>
         <Row>
-          <Col xs={4}>
-            <ProductComponent />
-          </Col>
+          <ProductComponent />
         </Row>
       </Grid>
     )
