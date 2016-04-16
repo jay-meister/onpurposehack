@@ -28,20 +28,20 @@ const filterResponse = (twitterResponse) => {
   	const coordinates = tweet.geo ? tweet.geo.coordinates : null
   	const place = tweet.place ? tweet.place.full_name : null
 
-  	return (imgURLs) ? {
-  		date: tweet.created_at.slice(0,10),
-  		time: tweet.created_at.slice(10,16),
-  		description: description,
-  		hashtags: hashtags,
-  		imgURLs: imgURLs,
-  		coordinates: coordinates,
-  		place: place,
-  		provider: {
-  		    id: tweet.user.id,
-  		    name: tweet.user.name,
-  		    userName: tweet.user.screen_name,
-  		    profileImage: tweet.user.profile_image_url
-  		}
-  	} : null
+    return (imgURLs) ? {
+      date: tweet.created_at.slice(0,10),
+      time: tweet.created_at.slice(10,16),
+      description: description,
+      hashtags: hashtags,
+      imgURLs: imgURLs,
+      coordinates: coordinates,
+      place: place,
+      provider: {
+        id: tweet.user.id,
+        name: tweet.user.name,
+        userName: tweet.user.screen_name,
+        profileImage: tweet.user.profile_image_url
+      }
+    } : null
   }).filter(tweet => tweet ) //filter out tweets which dont have image attached
 }
