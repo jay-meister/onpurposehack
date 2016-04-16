@@ -16,7 +16,7 @@ import Images from './routes/Images.js'
 import ReactUrls from './routes/ReactUrls.js'
 import Scripts from './routes/Scripts.js'
 
-const ConnectionSettings = { port, routes: {cors: true} }
+const ConnectionSettings = { port, routes: { cors: true } }
 const Plugins = [ Inert ]
 const Routes = [ Hello, Images, ReactUrls, Scripts ]
 
