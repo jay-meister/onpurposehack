@@ -5,7 +5,7 @@ import Footer from './Footer/index.js'
 import '../../scss/style.scss'
 
 const options = {
-  menuItems: ['about', 'contact'],
+  menuItems: [],
   logoUrl: 'img/rhino.png'
 }
 
@@ -13,7 +13,7 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-        <Header menuItems={options.menuItems} logoUrl={options.logoUrl} fluid={true} />
+        <Header menuItems={options.menuItems} logoUrl={options.logoUrl} fluid />
         <div className='header-spacing'></div>
           {this.props.children}
         <Footer logoUrl={options.logoUrl} />
