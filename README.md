@@ -4,9 +4,11 @@
 ### The waste hierarchy
 The Waste Hierarchy sets out a hierarchy of options for managing waste in terms of what is best for the environment. The different options (in order of preference) are illustrated below:
 ![image](https://cloud.githubusercontent.com/assets/18498011/14582375/03e61416-03fb-11e6-9a64-3eaf4e96b8ac.png)
+
 Source: http://www.recycle-more.co.uk/pwpcontrol.php?pwpID=11281
 
 ![image](https://cloud.githubusercontent.com/assets/18498011/14582296/c4eba5de-03f8-11e6-8ada-084fdb55d4f3.png)
+
 Image source: https://www.google.co.uk/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiPs5DgypPMAhXE0xQKHcmlBYEQjRwIBw&url=http%3A%2F%2Fconsult.torridge.gov.uk%2Fevents%2F18097%2Fpopimage_d31379e8718.html&psig=AFQjCNGYym-Vx1Se5OEGjb1YQvw0aS7JXw&ust=1460910741647097
 
 Consider a mobile phone - all the work that has gone into making it (forming, shaping, component assembly etc.) is lost when the phone is recycled where the base plastic and metals will be recovered. If the phone is reused maximum value is retained (energy and resources). Another example is recycling plastic, typically the recycling process degrades the quality of a plastic as it is mixed with slightly different plastics, qualities and/or colours. Often, plastic becomes unrecyclable after one or two loops e.g. mushroom plastic trays are typically not recyclable.
