@@ -1,4 +1,3 @@
-@import 'variables';
 
 .header-spacing {
   height: $header-height;
@@ -90,7 +89,7 @@
   }
 
   .navbar-brand {
-    width: $logo-size / 1.33;
+    width: $logo-size / 2.5;
 
     img {
       width: 100%;

@@ -11,10 +11,94 @@ body {
   margin-bottom: $footer-height;
 }
 
+.thumbnail {
+  border: none;
+  padding: 0;
+  background-color: #E8E8E8;
+
+  .caption {
+    padding: 25px;
+  }
+}
+
+.leaf-logo {
+  display: block;
+  margin: 30px auto;
+  max-width: 70px;
+}
+
 .home-title {
   text-align: center;
 }
 
 .user-image {
   max-height: 1em;
+}
+
+.hashtags {
+  display: inline-block;
+  margin: 10px;
+}
+
+.img-circle {
+  display: inline-block;
+}
+
+.container-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-flex {
+  flex: 0 0 33%;
+  padding: 2%;
+}
+
+
+// loading
+
+.is-loading {
+  opacity: 1!important;
+}
+
+.hidden {
+  display: none;
+}
+
+.loading {
+  transition: opacity 0.5s ease;
+  transition-delay: 1s;
+  opacity: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+
+  .img-container {
+    text-align: center;
+    margin-top: 25vh;
+  }
+}
+
+
+.loading-leaf {
+  max-width: 90px;
+  animation: leaf-pulse 2s ease-in-out infinite;
+}
+
+@keyframes leaf-pulse {
+  0% { -webkit-filter: contrast(70%) }
+  50% { -webkit-filter: contrast(160%) }
+  100% { -webkit-filter: contrast(70%) }
+}
+
+@media (max-width: 650px) {
+  .col-flex {
+    flex: 0 0 50%;
+  }
+  .hashtags {
+    display: block;
+  }
 }
