@@ -1,9 +1,11 @@
 import React from 'react'
 import { ButtonInput, Image, Input } from 'react-bootstrap'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
-export default class Item extends React.Component {
+
+class Item extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -18,6 +20,7 @@ export default class Item extends React.Component {
   }
 
   render () {
+    console.log('this in item', this)
     const thisItem = this.props.items.filter(item => {
       return item.tweetId === this.props.id
     })[0]
@@ -36,8 +39,8 @@ export default class Item extends React.Component {
             tweetId: thisItem.tweetId,
             userName: thisItem.provider.userName
           }
-          axios.post('/contact-seller', options).then(data => {
-            console.log(data)
+          axios.post('/contact-seller', options).then(() => {
+            browserHistory.push('/product-page')
           })
         }}
         >
@@ -59,3 +62,11 @@ export default class Item extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    state: state
+  }
+}
+
+export default connect(mapStateToProps)(Item)
