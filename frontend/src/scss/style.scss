@@ -11,6 +11,11 @@ body {
   margin-bottom: $footer-height;
 }
 
+.form-group {
+  display: inline-block;
+  margin: 16px;
+}
+
 .thumbnail {
   border: none;
   padding: 0;
