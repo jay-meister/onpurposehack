@@ -10,14 +10,11 @@ export default {
   config: {
     auth: 'session',
     handler: (request, reply) => {
-      const decodedData = jwt.verify(request.auth.credentials.twitterCookie, JWT_SECRET)
-      const oauth = Object.assign({}, decodedData)
-      delete oauth.iat
-      const url = 'https://api.twitter.com/1.1/statuses/update.json'
-      const status = encodeURI('i love reuseapp')
-      req.post({ url: url, oauth: oauth, status: status }, (err, response, body) => {
-        console.log(response)
-        reply(decodedData)
+      const oauth = jwt.verify(request.auth.credentials.twitterCookie, JWT_SECRET)
+      const status = encodeURI('i really love reuseapp') // eslint-disable-line
+      const url = 'https://api.twitter.com/1.1/statuses/update.json?status=' + status
+      req.post({ url, oauth }, (err, response, body) => {
+        reply(body)
       })
     }
   }

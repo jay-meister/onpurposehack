@@ -12,10 +12,10 @@ export default {
       if (request.auth.isAuthenticated) {
         const cred = request.auth.credentials
         const dataToSend = {
-          consumer_key: process.env.CONSUMER_KEY,
-          consumer_secret: process.env.CONSUMER_SECRET,
+          consumer_key: process.env.CONSUMER_KEY, // eslint-disable-line
+          consumer_secret: process.env.CONSUMER_SECRET, // eslint-disable-line
           token: cred.token,
-          secret: cred.secret,
+          token_secret: cred.secret, // eslint-disable-line
         }
         const jwToken = jwt.sign(dataToSend, JWT_SECRET)
         request.cookieAuth.set({ twitterCookie: jwToken })
