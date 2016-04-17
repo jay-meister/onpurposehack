@@ -1,28 +1,23 @@
 import React from 'react'
 import { Thumbnail, Col, Row, Image } from 'react-bootstrap' // eslint-disable-line
-import axios from 'axios'
 
-export default class ProductComponent extends React.Component {
+import { loadItems } from '../../actions/index.js'
+import { connect } from 'react-redux'
+
+
+class ProductComponent extends React.Component {
   constructor () {
     super()
-    this.state = {
-      items: []
-    }
     this.isLoading = this.isLoading.bind(this)
   }
 
   componentWillMount () {
-    axios.get('/items').then(items => {
-      this.setState({ items: items.data })
-      setTimeout(() => {
-        const loading = document.getElementById('loading')
-        loading.classList.add('hidden')
-      }, 2000)
-    })
+    console.log('componentWillMount: ', this.props)
+    this.props.loadItems()
   }
 
   isLoading () {
-    return (this.state.items.length > 0) ? '' : 'is-loading'
+    return this.props.items.length > 0 ? '' : 'is-loading'
   }
 
   render () {
@@ -35,23 +30,30 @@ export default class ProductComponent extends React.Component {
           </div>
         </div>
         <div className='container-flex'>
-          {this.state.items.map((item, i) => {
-             return (
-             <div key={'item-' + i} className='col-flex'>
-               <Thumbnail src={item.imgURLs[0]}>
-                 <Image src={item.provider.profileImage} circle responsive />
-                 {item.hashtags.map(hashtag => <h5 className='hashtags'>{'#' + hashtag}</h5>)}
-               </Thumbnail>
-             </div>
+          {this.props.items.map((item, i) => {
+            return (
+              <div key={'item-' + i} className='col-flex'>
+                <Thumbnail src={item.imgURLs[0]}>
+                  <Image src={item.provider.profileImage} circle responsive />
+                  {item.hashtags.map(hashtag => <h5 className='hashtags'>{'#' + hashtag}</h5>)}
+                </Thumbnail>
+              </div>
              )
-           })}
+          })}
         </div>
       </div>
     )
   }
 }
+//
+// ProductComponent.defaultProps = {
+//   imageURL: 'http://www.sahety.com/wp-content/uploads/2016/01/used-chesterfield-sofas-for-sale.jpg',
+//   hashtags: [ 'sofa', 'furniture' ]
+// }
 
-ProductComponent.defaultProps = {
-  imageURL: 'http://www.sahety.com/wp-content/uploads/2016/01/used-chesterfield-sofas-for-sale.jpg',
-  hashtags: [ 'sofa', 'furniture' ]
+const mapStateToProps = state => {
+  console.log('mapStateToProps. State: ', state)
+  return { items: state.items }
 }
+
+export default connect(mapStateToProps, { loadItems })(ProductComponent)
