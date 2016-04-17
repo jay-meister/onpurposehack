@@ -13,11 +13,6 @@ class ProductComponent extends React.Component {
 
   componentWillMount () {
     console.log('componentWillMount: ', this.props)
-    setTimeout(() => {
-      const loading = document.getElementById('loading')
-      console.log('happend')
-      loading.classList.add('hidden')
-    }, 2000)
     this.props.loadItems()
   }
 
@@ -50,11 +45,6 @@ class ProductComponent extends React.Component {
     )
   }
 }
-//
-// ProductComponent.defaultProps = {
-//   imageURL: 'http://www.sahety.com/wp-content/uploads/2016/01/used-chesterfield-sofas-for-sale.jpg',
-//   hashtags: [ 'sofa', 'furniture' ]
-// }
 
 const mapStateToProps = state => {
   console.log('mapStateToProps. State: ', state)

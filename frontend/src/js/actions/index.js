@@ -5,7 +5,6 @@ export const loadItems = () => {
   return axios.get('/items').then(items => {
     setTimeout(() => {
       const loading = document.getElementById('loading')
-      console.log('happend')
       loading.classList.add('hidden')
     }, 2000)
     return Promise.resolve({
