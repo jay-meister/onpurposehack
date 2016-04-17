@@ -29,6 +29,7 @@ const filterResponse = (twitterResponse) => {
   	const place = tweet.place ? tweet.place.full_name : null
 
     return (imgURLs) ? {
+      tweetId: tweet.id_str,
       date: tweet.created_at.slice(0,10),
       time: tweet.created_at.slice(10,16),
       description: description,
