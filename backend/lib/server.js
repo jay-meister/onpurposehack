@@ -19,10 +19,11 @@ import ReactUrls from './routes/ReactUrls.js'
 import Scripts from './routes/Scripts.js'
 import Items from './routes/items.js'
 import Login from './routes/Login.js'
+import ContactSeller from './routes/ContactSeller.js'
 
 const ConnectionSettings = { port, routes: { cors: true } }
 const Plugins = [ Inert, Bell, AuthCookie ]
-const Routes = [ Images, ReactUrls, Scripts, Items, Login ]
+const Routes = [ Images, ReactUrls, Scripts, Items, Login, ContactSeller ]
 
 server.connection(ConnectionSettings)
 server.register(Plugins, handlePlugins)
