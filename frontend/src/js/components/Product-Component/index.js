@@ -1,6 +1,7 @@
 import React from 'react'
 import { Thumbnail, Col, Row, Image } from 'react-bootstrap' // eslint-disable-line
 
+import { Link } from 'react-router'
 import { loadItems } from '../../actions/index.js'
 import { connect } from 'react-redux'
 
@@ -33,10 +34,12 @@ class ProductComponent extends React.Component {
           {this.props.items.map((item, i) => {
             return (
               <div key={'item-' + i} className='col-flex'>
-                <Thumbnail src={item.imgURLs[0]}>
-                  <Image src={item.provider.profileImage} circle responsive />
-                  {item.hashtags.map(hashtag => <h5 className='hashtags'>{'#' + hashtag}</h5>)}
-                </Thumbnail>
+                <Link to={'/item/' + item.tweetId} >
+                  <Thumbnail src={item.imgURLs[0]} >
+                    <Image src={item.provider.profileImage} circle responsive />
+                    {item.hashtags.map(hashtag => <h5 className='hashtags'>{'#' + hashtag}</h5>)}
+                  </Thumbnail>
+                </Link>
               </div>
              )
           })}

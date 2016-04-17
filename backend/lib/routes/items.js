@@ -40,6 +40,7 @@ const filterResponse = (twitterResponse) => {
     : null
 
     return imgURLs ? {
+      tweetId: tweet.id_str,
       date: tweet.created_at.slice(0, 10),
       time: tweet.created_at.slice(10, 16),
       description: description,
