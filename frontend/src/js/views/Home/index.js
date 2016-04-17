@@ -15,7 +15,9 @@ export default () => {
               <Button bsStyle='success' type='submit'>Go</Button>
             </Link>
           </form>
-          <a href='/twitterauth'>login with twitter</a>
+          <Button bsClass='btn twitter-button'>
+            <a href='/twitterauth'>login with twitter</a>
+          </Button>
         </Col>
       </Row>
     </Grid>
