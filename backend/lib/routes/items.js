@@ -5,7 +5,7 @@ export default {
   path: '/items',
   method: 'GET',
   handler: (request, reply) => {
-    const url = 'https://api.twitter.com/1.1/statuses/mentions_timeline.json'
+    const url = 'https://api.twitter.com/1.1/statuses/mentions_timeline.json?count=50'
     const oauth = {
       consumer_key: process.env.CONSUMER_KEY, // eslint-disable-line
       consumer_secret: process.env.CONSUMER_SECRET, // eslint-disable-line
