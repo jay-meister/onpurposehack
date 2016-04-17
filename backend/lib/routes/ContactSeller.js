@@ -11,8 +11,10 @@ export default {
     auth: 'session',
     handler: (request, reply) => {
       const oauth = jwt.verify(request.auth.credentials.twitterCookie, JWT_SECRET)
-      const status = encodeURI('i really love reuseapp') // eslint-disable-line
-      const url = 'https://api.twitter.com/1.1/statuses/update.json?status=' + status
+      const status = encodeURI('i really really really really love ') // eslint-disable-line
+      const tweetTo = '%40reuseapp'
+      console.log(status);
+      const url = 'https://api.twitter.com/1.1/statuses/update.json?status=' + status + tweetTo
       req.post({ url, oauth }, (err, response, body) => {
         reply(body)
       })
