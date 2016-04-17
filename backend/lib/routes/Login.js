@@ -19,7 +19,7 @@ export default {
         }
         const jwToken = jwt.sign(dataToSend, JWT_SECRET)
         request.cookieAuth.set({ twitterCookie: jwToken })
-        reply.redirect('/')
+        reply.redirect('/product-page')
       }
     }
   }
