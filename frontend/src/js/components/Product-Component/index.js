@@ -22,7 +22,7 @@ export default class ProductComponent extends React.Component {
   }
 
   isLoading () {
-    return (this.state.items.length > 0) ? '' : 'is-loading'
+    return this.state.items.length > 0 ? '' : 'is-loading'
   }
 
   render () {
@@ -36,15 +36,15 @@ export default class ProductComponent extends React.Component {
         </div>
         <div className='container-flex'>
           {this.state.items.map((item, i) => {
-             return (
-             <div key={'item-' + i} className='col-flex'>
-               <Thumbnail src={item.imgURLs[0]}>
-                 <Image src={item.provider.profileImage} circle responsive />
-                 {item.hashtags.map(hashtag => <h5 className='hashtags'>{'#' + hashtag}</h5>)}
-               </Thumbnail>
-             </div>
+            return (
+              <div key={'item-' + i} className='col-flex'>
+                <Thumbnail src={item.imgURLs[0]}>
+                  <Image src={item.provider.profileImage} circle responsive />
+                  {item.hashtags.map(hashtag => <h5 className='hashtags'>{'#' + hashtag}</h5>)}
+                </Thumbnail>
+              </div>
              )
-           })}
+          })}
         </div>
       </div>
     )
