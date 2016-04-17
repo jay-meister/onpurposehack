@@ -6,14 +6,18 @@ export default () => {
   return (
     <Grid>
       <Row className='home-title'>
-        <Col xs={4} xsOffset={4}>
+        <Col xs={6} xsOffset={3}>
           <form>
-            <h1>PostCode</h1>
-            <Input type='text' placeholder='Where would you like to search?' required />
+          <h1>ReuseApp</h1>
+          <p>give your old stuff a new life</p>
+            <Input type='text' placeholder='Search an area' required />
             <Link to='/product-page'>
-              <Button bsStyle='info' type='submit'>Go</Button>
+              <Button bsStyle='success' type='submit'>Go</Button>
             </Link>
           </form>
+          <Button bsClass='btn twitter-button'>
+            <a href='/twitterauth'>login with twitter</a>
+          </Button>
         </Col>
       </Row>
     </Grid>
