@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 const JWT_SECRET = process.env.JWT_SECRET
 
 export default {
-  method: ['GET', 'POST'],
+  method: [ 'GET', 'POST' ],
   path: '/twitterauth',
   config: {
     auth: 'twitter',
@@ -18,7 +18,7 @@ export default {
           secret: cred.secret,
         }
         const jwToken = jwt.sign(dataToSend, JWT_SECRET)
-        request.cookieAuth.set({'twitterCookie': jwToken})
+        request.cookieAuth.set({ twitterCookie: jwToken })
         reply.redirect('/')
       }
     }

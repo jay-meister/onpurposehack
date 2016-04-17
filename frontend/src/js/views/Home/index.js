@@ -13,6 +13,7 @@ export default () => {
             <Link to='/product-page'>
               <Button bsStyle='info' type='submit'>Go</Button>
             </Link>
+            <a href='/twitterauth'>login with twitter</a>
           </form>
         </Col>
       </Row>
