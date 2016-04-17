@@ -17,7 +17,7 @@ const enhancedHistory = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={enhancedHistory} routes={Routes} />
+    <Router history={enhancedHistory} routes={Routes} onUpdate={() => window.scrollTo(0, 0)}/>
   </Provider>,
   document.getElementById('app')
 )
