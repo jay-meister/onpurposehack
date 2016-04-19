@@ -13,11 +13,3 @@ export const loadItems = () => {
     })
   })
 }
-
-export const contactSeller = (message, providerId, tweetId) => {
-  console.log('contactSeller action called')
-  return {
-    type: 'CONTACT_SELLER',
-    payload: { message, providerId, tweetId }
-  }
-}

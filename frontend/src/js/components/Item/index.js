@@ -2,10 +2,8 @@ import React from 'react'
 import { ButtonInput, Image, Input } from 'react-bootstrap'
 import { Link, browserHistory } from 'react-router'
 import axios from 'axios'
-import { connect } from 'react-redux'
 
-
-class Item extends React.Component {
+export default class Item extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -15,22 +13,29 @@ class Item extends React.Component {
   }
 
   handleChange (e) {
-    console.log(e.target)
     this.setState({ formValue: e.target.value })
   }
 
   render () {
-    console.log('this in item', this)
     const thisItem = this.props.items.filter(item => {
       return item.tweetId === this.props.id
     })[0]
     return (
       <div>
         <Image src={thisItem.imgURLs[0]} responsive/>
-        {thisItem.date} {thisItem.time}
-        {thisItem.description}
-        {thisItem.place}
-        {thisItem.provider.userName} <Image src={thisItem.provider.profileImage} circle responsive/>
+        <div className='item-date'>
+          Posted on {thisItem.date} at {thisItem.time}
+        </div>
+        <div className='item-description'>
+          <span className='item-username'>
+            {thisItem.provider.userName + ': '}
+          </span>
+          {thisItem.description}
+        </div>
+        <div className='item-place'>Located in {thisItem.place}</div>
+        <div className='item-provider-image'>
+          <Image src={thisItem.provider.profileImage} circle responsive/>
+        </div>
 
         <form onSubmit={(e) => {
           e.preventDefault()
@@ -48,25 +53,15 @@ class Item extends React.Component {
             type='text'
             onChange={this.handleChange}
             value={this.state.formValue}
-            placeholder={'Send a tweet to ' + thisItem.provider.userName}
-            label='Working example with validation'
-            help='Validation is based on string length.'
+            placeholder={'@' + thisItem.provider.userName}
+            label={'Send a tweet to ' + thisItem.provider.userName}
+            help='Maximum of 140 characters'
             hasFeedback
             ref='input'
-            groupClassName='group-class'
-            labelClassName='label-class'
           />
-          <ButtonInput type='submit' value='Tweet' />
+          <ButtonInput className='contact-button' type='submit' value='Tweet'/>
         </form>
       </div>
     )
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    state: state
-  }
-}
-
-export default connect(mapStateToProps)(Item)

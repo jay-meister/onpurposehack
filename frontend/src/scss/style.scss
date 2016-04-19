@@ -116,3 +116,24 @@ body {
     display: block;
   }
 }
+
+
+// View item page (components/item)
+.item-date {
+  color: #A6A6A6;
+ }
+.item-description {
+  margin-top: 2px;
+  border-top: 1px solid lightgrey;
+  padding-top: 4px;
+ }
+.item-username {
+  color: #128205;
+  font-weight: bold;
+  font-size: 15px;
+}
+.contact-button {
+  background-color: #A8FBA8;
+  border: none;
+  height: 43px;
+}
